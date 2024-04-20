@@ -9,15 +9,12 @@ export function BarChart(props) {
     const yScale = scaleBand().range([0, height]).domain(data.map(a => a.AirlineName)).padding(0.2);
 
     let color = (d) => d.AirlineID === selectedAirline ? "#992a5b" : "#2a5599";
-  
-    
+
     const handleBarClick = (d) => {
         if (selectedAirline === d.AirlineID) {
-            
-            setSelectedAirline(null);
+            setSelectedAirline(null);  
         } else {
-            
-            setSelectedAirline(d.AirlineID);
+            setSelectedAirline(d.AirlineID);  
         }
     };
 
@@ -28,7 +25,7 @@ export function BarChart(props) {
                   y={yScale(d.AirlineName)}
                   width={xScale(d.Count)}
                   height={yScale.bandwidth()}
-                  onClick={() => handleBarClick(d)}
+                  onClick={() => handleBarClick(d)} 
                   stroke="black"
                   fill={color(d)} />
         ))}
