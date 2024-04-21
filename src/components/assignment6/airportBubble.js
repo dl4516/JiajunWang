@@ -4,6 +4,7 @@ import { forceSimulation, forceX, forceY, forceCollide, scaleLinear } from "d3";
 
 function AirportBubble(props){
     const {width, height, routes, selectedAirline} = props;
+    console.log(groupByCity(routes));
     let cities, radiusScale, simulation;
 
     if (routes) {

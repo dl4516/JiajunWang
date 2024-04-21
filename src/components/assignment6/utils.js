@@ -48,12 +48,22 @@ function groupByAirport(data) {
 function groupByCity(data) {
     let result = data.reduce((result, d) => {
         result[d.DestCity] = result[d.DestCity] || {
+            "AirportID": d.SourceAirportID,
+            "Airport": d.SourceAirport,
+            "Latitude": +d.SourceLatitude,
+            "Longitude": +d.SourceLongitude,
+            "Country": d.SourceCountry,
             "City": d.DestCity,
             "Count": 0
         };
         result[d.DestCity].Count += 1;
 
         result[d.SourceCity] = result[d.SourceCity] || {
+            "AirportID": d.SourceAirportID,
+            "Airport": d.SourceAirport,
+            "Latitude": +d.SourceLatitude,
+            "Longitude": +d.SourceLongitude,
+            "Country": d.SourceCountry,
             "City": d.SourceCity,
             "Count": 0
         };
